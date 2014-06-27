@@ -120,10 +120,9 @@ Specifies the offset of the zoomed image. Required when the image needs to take 
 *Expects* `fixed, fixed all, none`
 
 This property handles how the zoom frame acts when the cursor reaches the each of the picture.
-* `fixed` frame is fixed at the border but the image moves inside frame.
-* `fixed all` fixes frame and disappears att edges if frame disappears.
-* `none` removes magnifying glass. Also if the class zoomMG is not found mgBehaviour defaults to none.
-Example:
+*	`fixed` frame is fixed at the border but the image moves inside frame.
+*	`fixed all` fixes frame and disappears att edges if frame disappears.
+*	`none` removes magnifying glass. Also if the class zoomMG is not found mgBehaviour defaults to none.
 
 	$(selector).remooz({mgBehaviour: fixed})
 
