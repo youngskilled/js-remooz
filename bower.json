@@ -1,0 +1,19 @@
+{
+  "name": "ys-remooz",
+  "version": "1.5.1",
+  "main": "dist/remooz.js",
+  "authors": [
+    "Richard Herries <richard@youngskilled.com>"
+  ],
+  "description": "Remooz a zoom function for pictures",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "jquery": "1.11",
+    "normalize-scss": "~3.0.1"
+  }
+}
