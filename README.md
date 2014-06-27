@@ -35,7 +35,7 @@ Following structure is required for selector to work. (Using Emmet tab complete 
 
 #### fitX ####
 
-*Default* `true`
+*Default* `true`   
 *Expects* `boolean`
 
 How the zoomed image should react on zoom. fitX means it will not be larger than the window height when zoomed. If used in combination with fitY then this will only allow the image to be the size of the screen proportionally no matter the size of the picture.
@@ -44,7 +44,7 @@ How the zoomed image should react on zoom. fitX means it will not be larger than
 
 #### fitY ####
 
-*Default* `false`
+*Default* `false`   
 *Expects* `boolean`
 
 How the zoomed image should react on zoom. fitY means it will not be larger than the window height when zoomed. If used in combination with fitX then this will only allow the image to be the size of the screen proportionally no matter the size of the picture.
@@ -53,7 +53,7 @@ How the zoomed image should react on zoom. fitY means it will not be larger than
 
 #### srcRegexp ####
 
-*Default* `/\.(jpg|jpeg|png|gif)$/i`
+*Default* `/\.(jpg|jpeg|png|gif)$/i`   
 *Expects* `regexp`
 
 Using regular expressions find the string to be replaced in the original src to get the zoomed image src.
@@ -62,7 +62,7 @@ Using regular expressions find the string to be replaced in the original src to 
 
 #### srcStrReplace ####
 
-*Default* `"-large.$1"`
+*Default* `"-large.$1"`   
 *Expects* `regexp`
 
 In combination with the above property you can change the src of the full-sized image. This uses the normal javascript `str.replace()` method. You can use $1, $2 to reference brackets etc.
@@ -71,7 +71,7 @@ In combination with the above property you can change the src of the full-sized 
 
 #### viewNext ####
 
-*Default* `false`
+*Default* `false`   
 *Expects* `selector`
 
 Click on the zoomed image container to view the next image in the series.
@@ -80,7 +80,7 @@ Click on the zoomed image container to view the next image in the series.
 
 #### showThumbs ####
 
-*Default* `false`
+*Default* `false`   
 *Expects* `boolean`
 
 Adds thumbnails into zoom container as well. This uses the same thumbnail images as found on the page.
@@ -89,7 +89,7 @@ Adds thumbnails into zoom container as well. This uses the same thumbnail images
 
 #### single ####
 
-*Default* `false`
+*Default* `false`   
 *Expects* `selector, false`
 
 Specifies that the image being clicked is a stand alone picture and is a part of a larger series. The selector refers to the other pictures in the same series.
@@ -98,7 +98,7 @@ Specifies that the image being clicked is a stand alone picture and is a part of
 
 #### zoomTrigger ####
 
-*Default* `false`
+*Default* `false`   
 *Expects* `selector, false`
 
 Useful when there is a zoom trigger (zoom when clicking "this" icon) instead of clicking on the picture. Often used often in conjunction with mgBehaviour.
@@ -107,7 +107,7 @@ Useful when there is a zoom trigger (zoom when clicking "this" icon) instead of 
 
 #### imgOffset ####
 
-*Default* `[0, 0, 0, 0]`
+*Default* `[0, 0, 0, 0]`   
 *Expects* `top right bottom left`
 
 Specifies the offset of the zoomed image. Required when the image needs to take into account padding and borders.
@@ -116,7 +116,7 @@ Specifies the offset of the zoomed image. Required when the image needs to take 
 
 #### mgBehaviour ####
 
-*Default* `fixed`
+*Default* `fixed`   
 *Expects* `fixed, fixed all, none`
 
 This property handles how the zoom frame acts when the cursor reaches the each of the picture.
@@ -128,7 +128,7 @@ This property handles how the zoom frame acts when the cursor reaches the each o
 
 #### mgImgOffset ####
 
-*Default* `[0, 0, 0, 0]`
+*Default* `[0, 0, 0, 0]`   
 *Expects* `top right bottom left`
 
 Specifies offsets for the magnifying glass to take into account padding and borders.
