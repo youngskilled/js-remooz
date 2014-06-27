@@ -124,7 +124,9 @@ This property handles how the zoom frame acts when the cursor reaches the each o
 *	`fixed all` fixes frame and disappears att edges if frame disappears.
 *	`none` removes magnifying glass. Also if the class zoomMG is not found mgBehaviour defaults to none.
 
-	$(selector).remooz({mgBehaviour: fixed})
+		
+
+		$(selector).remooz({mgBehaviour: fixed})
 
 #### mgImgOffset ####
 
