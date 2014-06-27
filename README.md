@@ -154,44 +154,44 @@ Numerous classes can be reassigned. Check the `defaultOpts {}` as to which class
 
 ### Changelog ###
 
-**Version 1.5.1**
+**Version 1.5.1**  
 Removed magnifying touch.
 
-**Version 1.5**
+**Version 1.5**  
 Made a major improvement on touch registering. No longer running on time but based on distance of finger moved.
 
-**Version 1.4.2**
+**Version 1.4.2**  
 Removed preventDefault on key presses. Inteferring with the global window object.
 
-**Version 1.4.1**
+**Version 1.4.1**  
 Stopped images from loading in on hover if single is chosen.
 Remembers scroll position before loading image and returns user to that position on close.
 Moved a preventDefault so that you can scroll on the page and adjusted the click time.
 
-**Version 1.4**
+**Version 1.4**  
 Added a preloader to enable a smoother transition between images.
 
-**Version 1.3.4**
+**Version 1.3.4**  
 Added a debug message when img.current not found.
 
-**Version 1.3.3**
+**Version 1.3.3**  
 On clicking of external zoom link image was not able to be found. Using parent then finding zoomImg from there. Allows zoom to be a sibling of the images.
 Fixed ids for pictures that don't have a normal img suffix.
 
-**Version 1.3.2**
+**Version 1.3.2**  
 Fixed thumbnail clicking. Switch statement in changeZoomedImage not picking up the number.
 Removed z-index from being fired every time mouse was moved in zoom mode.
 Changed zoom id so that it is truly unique to every picture. Now uses the Image source tag to seperate between images.
 
-**Version 1.3.1**
+**Version 1.3.1**  
 Fixed a bug where no width or height was being set to the zoomed image, resulting in no image showing.
 
-**Version 1.3**
+**Version 1.3**  
 Refactored code to remove nested functions and removed repitition
 Made offsets for magnifying glass and zoom to the same format.
 Image size data is now retrieved from the image itself instead of relying on hand coded data-zoom tags.
 
-**Version 1.2**
+**Version 1.2**  
 Initiated events in remooz.init instead of inside a private function
 
 ### Development ###
