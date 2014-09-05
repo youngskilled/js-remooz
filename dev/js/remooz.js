@@ -66,6 +66,11 @@
 					imgIndex = ($this.set.mgBehaviour !== 'none') ? $zoomImg.index() - 1 : $zoomImg.index();
 					if($this.set.debug === true) console.info('Zoom Image = ',$zoomImg);
 					$this.set.currImg = {'pos': imgIndex, 'len': $this.find($this.set.zoomPool + ' img').length};
+					if($this.set.currImg.len === 1) {
+						$this.set.$zoomImgCont.parent().find($this.set.prev + ',' + $this.set.next).hide();
+					} else {
+						$this.set.$zoomImgCont.parent().find($this.set.prev + ',' + $this.set.next).show();
+					}
 				}
 				if($this.set.zoomTrigger !== false || $this.set.mgBehaviour === 'none') {
 					if($this.set.single !== false) {
@@ -578,6 +583,7 @@
 				priv.zoomPoolInit.apply($this);
 			});
 		},
+
 		update: function(options) {
 			
 			return this.each(function() {
@@ -587,6 +593,18 @@
 				$this.set = $.extend({}, defaultOpts, options, objectData, privateOpts);
 
 				priv.zoomPoolInit.apply($this);
+			});
+
+		},
+		closeZoom: function(options) {
+
+			return this.each(function() {
+				var $this = $(this);
+
+				$this.set = $this.data();
+				
+				$this.set.$zoomCont.trigger('remooz.closeZoom');
+				
 			});
 
 		},

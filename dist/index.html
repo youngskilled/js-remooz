@@ -33,6 +33,14 @@
 					</div>
 				</div>
 			</section>
+			<section>
+				<h3>Only one image</h3>
+				<div id="prod-pics-sect" class="prod-pics-sect">
+					<div id="main-prod-cont" class="main-prod-cont">
+						<img class="current" src="/images/placeholder-450x600-DDDDDD.jpg" alt="" width="450" height="600">
+					</div>
+				</div>
+			</section>
 		</main>
 		<footer class="main-cont">
 			<a class="signature" href="http://youngskilled.com">
@@ -55,7 +63,11 @@
 		<script type="text/javascript" src="/js/remooz.js"></script>
 		<script>
 			$(document).ready(function() {
+				var gridShowing = false;
+
+
 				$('.prod-pics-sect').remooz({
+					debug: true,
 					srcRegexp: /450x600/,
 					srcStrReplace: '1500x2000'
 				});

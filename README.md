@@ -154,6 +154,12 @@ Numerous classes can be reassigned. Check the `defaultOpts {}` as to which class
 
 ### Changelog ###
 
+**Version 1.5.3**  
+Removed arrows in the zoom container if there is only one picture zoomed.
+
+**Version 1.5.2**  
+Tidied up styling of zoom.
+
 **Version 1.5.1**  
 Removed magnifying touch.
 
