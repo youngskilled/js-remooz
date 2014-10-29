@@ -96,10 +96,9 @@
 				$this.set.sizeY = $zoomImg.height();
 
 				//Create new image with new source.
-				if(typeof $zoomImg.data("zoom-url") !== undefined) {
-					zoomImgSrc = $zoomImg.data("zoom-url");
-				}
-				else {
+				if($zoomImg.data('zoom-url') !== undefined) {
+					zoomImgSrc = $zoomImg.data('zoom-url');
+				} else {
 					zoomImgSrc = $zoomImg.attr('src').replace($this.set.srcRegexp, $this.set.srcStrReplace);
 				}
 				$this.set.$zoomImgCont.append('<img id="' + $this.set.zoomID + '" src="' + zoomImgSrc + '" style="z-index: ' + $this.set.zoomZIndex + '; width: 0; height: 0;" />');
