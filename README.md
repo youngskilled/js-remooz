@@ -154,6 +154,9 @@ Numerous classes can be reassigned. Check the `defaultOpts {}` as to which class
 
 ### Changelog ###
 
+**Version 1.5.4**  
+Updated jQuery dependency to be more accurate
+
 **Version 1.5.3**  
 Removed arrows in the zoom container if there is only one picture zoomed.
 
