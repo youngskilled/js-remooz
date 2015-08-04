@@ -83,9 +83,9 @@
 
 			zoomImgSrc = $zoomImg.attr('src');
 			if(imgReg.test(zoomImgSrc)) {
-				$this.set.zoomID = 'remooz-' + zoomImgSrc.split('/').pop().replace(imgReg, '');
+				$this.set.zoomID = 'js-remooz-' + zoomImgSrc.split('/').pop().replace(imgReg, '');
 			} else {
-				$this.set.zoomID = 'remooz-' + zoomImgSrc.split('/').pop();
+				$this.set.zoomID = 'js-remooz-' + zoomImgSrc.split('/').pop();
 			}
 
 			if($('#' + $this.set.zoomID).length === 0 || !priv.isImageLoaded($('#' + $this.set.zoomID)[0])) {
@@ -96,8 +96,8 @@
 				$this.set.sizeY = $zoomImg.height();
 
 				//Create new image with new source.
-				if($zoomImg.data('zoom-url') !== undefined) {
-					zoomImgSrc = $zoomImg.data('zoom-url');
+				if($zoomImg.data('remooz-zoom-url') !== undefined) {
+					zoomImgSrc = $zoomImg.data('remooz-zoom-url');
 				} else {
 					zoomImgSrc = $zoomImg.attr('src').replace($this.set.srcRegexp, $this.set.srcStrReplace);
 				}
@@ -637,16 +637,16 @@
 		imgOffset: [0, 0, 0, 0],
 		mgBehaviour: 'fixed',
 		mgImgOffset: [0, 0, 0, 0],
-		zoomCont: '#remooz-cont',
-		zoomThumbCont: '#remooz-thumb-cont',
-		zoomPool: '#main-prod-cont',
-		zoomThumbPool: '#main-prod-thumb-cont',
-		zoomMG: '#zoom-mag-glass',
+		zoomCont: '#js-remooz-zoomContainer',
+		zoomThumbCont: '#js-remooz-zoomThumbnailContainer',
+		zoomPool: '#js-remooz-imagePool',
+		zoomThumbPool: '#js-remooz-thumbnailPool',
+		zoomMG: '#js-remooz-zoomMagnifyingGlass',
 		zoomImg: 'img.current',
-		close: '.close',
-		prev: '.prev',
-		next: '.next',
-		preloader: '.preloader',
+		close: '.js-remooz-close',
+		prev: '.js-remooz-prev',
+		next: '.js-remooz-next',
+		preloader: '.js-remooz-preloader',
 		debug: false
 	};
 

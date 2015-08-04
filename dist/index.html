@@ -10,13 +10,13 @@
 	</head>
 	<body>
 		<div id="grid-container" class="hidden"><div></div></div>
-		<div id="full-screen-cont" class="full-screen-cont">
-			<div id="remooz-cont" class="remooz-cont"></div>
-			<div id="remooz-thumb-cont" class="remooz-thumb-cont"></div>
-			<div id="close-fs" class="close-fs close">X</div>
-			<div class="prev">&lt;</div>
-			<div class="next">&gt;</div>
-			<div class="preloader"></div>
+		<div class="remooz-fullScreenContainer">
+			<div id="js-remooz-zoomContainer" class="remooz-fullScreenContainer-inner"></div>
+			<div id="js-remooz-zoomThumbnailContainer"></div>
+			<div class="js-remooz-close remooz-fullScreenContainer-close">X</div>
+			<div class="js-remooz-prev remooz-fullScreenContainer-prev">&lt;</div>
+			<div class="js-remooz-next remooz-fullScreenContainer-next">&gt;</div>
+			<div class="js-remooz-preloader"></div>
 		</div>
 		<main class="main-cont">
 			<section>
@@ -25,8 +25,8 @@
 			</section>
 			<section>
 				<h3>Default Remooz</h3>
-				<div id="prod-pics-sect" class="prod-pics-sect">
-					<div id="main-prod-cont" class="main-prod-cont">
+				<div class="prod-pics-sect">
+					<div class="main-prod-cont">
 						<img class="current" src="images/placeholder-450x600-DDDDDD.jpg" alt="" width="450" height="600">
 						<img src="images/placeholder-450x600-B8B8B8.jpg" alt="" width="450" height="600">
 						<img src="images/placeholder-450x600-848484.jpg" alt="" width="450" height="600">
@@ -35,17 +35,17 @@
 			</section>
 			<section>
 				<h3>Only one image</h3>
-				<div id="prod-pics-sect" class="prod-pics-sect">
-					<div id="main-prod-cont" class="main-prod-cont">
+				<div class="prod-pics-sect">
+					<div class="main-prod-cont">
 						<img class="current" src="images/placeholder-450x600-DDDDDD.jpg" alt="" width="450" height="600">
 					</div>
 				</div>
 			</section>
 			<section>
 				<h3>Define source in data attribute</h3>
-				<div id="prod-pics-sect" class="prod-pics-sect">
-					<div id="main-prod-cont" class="main-prod-cont">
-						<img class="current" src="images/placeholder-450x600-DDDDDD.jpg" data-zoom-url="images/placeholder-450x600-B8B8B8.jpg" alt="" width="450" height="600">
+				<div class="prod-pics-sect">
+					<div class="main-prod-cont">
+						<img class="current" src="images/placeholder-450x600-DDDDDD.jpg" data-remooz-zoom-url="images/placeholder-450x600-B8B8B8.jpg" alt="" width="450" height="600">
 					</div>
 				</div>
 			</section>
@@ -76,6 +76,7 @@
 
 				$('.prod-pics-sect').remooz({
 					debug: true,
+					zoomPool: '.main-prod-cont',
 					srcRegexp: /450x600/,
 					srcStrReplace: '1500x2000'
 				});

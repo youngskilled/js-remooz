@@ -9,7 +9,7 @@ Initiate with `$(selector).remooz({'some':'property'});`
 Invoke methods with `$(selector).remooz('method', {'some':'property'});`   
 Example
 
-	$('.prod-pics-sect').remooz({
+	$('.selector').remooz({
 		debug: true,
 		zIndex: 2000
 	})
@@ -20,15 +20,15 @@ Following structure is required for selector to work. (Using Emmet tab complete 
 
 *Screen - Full Options*
 
-	div#full-screen-cont.full-screen-cont>div#remooz-cont.remooz-cont+div#remooz-thumb-cont.remooz-thumb-cont+div.close+div.prev+div.next+div.preloader
+	div.remooz-fullScreenContainer>div#js-remooz-zoomContainer.remooz-fullScreenContainer-inner+div#js-remooz-zoomThumbnailContainer+div.js-remooz-close.remooz-fullScreenContainer-close+div.js-remooz-prev.remooz-fullScreenContainer-prev+div.js-remooz-next.remooz-fullScreenContainer-next+div.js-remooz-preloader
 
 *Screen - Bare Minimum*
 
-	div#full-screen-cont.full-screen-cont>div#remooz-cont.remooz-cont
+	div.remooz-fullScreenContainer>div#js-remooz-zoomContainer.remooz-fullScreenContainer-inner
 
 *Product Pool*
 
-	div#prod-pics-sect.prod-pics-sect>div#main-prod-cont.main-prod-cont>img.current+img*2
+	div.selector>div#js-remooz-imagePool>img.current+img*2
 
 
 ### Properties ###
@@ -151,8 +151,22 @@ Helpful to get some debugging data. This should be off for production, prints ob
 
 Numerous classes can be reassigned. Check the `defaultOpts {}` as to which classes are able to be manipulated.
 
+	zoomCont: '#js-remooz-zoomContainer',
+	zoomThumbCont: '#js-remooz-zoomThumbnailContainer',
+	zoomPool: '#js-remooz-imagePool',
+	zoomThumbPool: '#js-remooz-thumbnailPool',
+	zoomMG: '#js-remooz-zoomMagnifyingGlass',
+	zoomImg: 'img.current',
+	close: '.js-remooz-close',
+	prev: '.js-remooz-prev',
+	next: '.js-remooz-next',
+	preloader: '.js-remooz-preloader',
+
 
 ### Changelog ###
+
+**Version 1.7.0**  
+Changed naming on all elements to be more BEM like. Not compatible with previous versions.
 
 **Version 1.6.2**  
 Added unminified plugin version
