@@ -154,6 +154,9 @@ Numerous classes can be reassigned. Check the `defaultOpts {}` as to which class
 
 ### Changelog ###
 
+**Version 1.6.2**  
+Added unminified plugin version
+
 **Version 1.6.1**  
 Updated jQuery dependency to be more accurate
 
