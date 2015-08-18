@@ -161,9 +161,13 @@ Numerous classes can be reassigned. Check the `defaultOpts {}` as to which class
 	prev: '.js-remooz-prev',
 	next: '.js-remooz-next',
 	preloader: '.js-remooz-preloader',
+	skipSlide: 'redils-duplicated',
 
 
 ### Changelog ###
+
+**Version 1.7.1**  
+Added class to enable one to skip certain slides in slideshow mode. Default skips duplicated slides in redils slider.
 
 **Version 1.7.0**  
 Changed naming on all elements to be more BEM like. Not compatible with previous versions.

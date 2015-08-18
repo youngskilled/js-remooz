@@ -145,6 +145,10 @@
 				$nextImg = $($this.set.single).eq($this.set.currImg.pos).find('img');
 			} else {
 				$nextImg = $($this.set.zoomPool).find('img:eq(' + $this.set.currImg.pos + ')');
+				if($nextImg.hasClass($this.set.skipSlide)) {
+					//Skip certain images
+					priv.changeZoomedImage.apply($this, [imgIndex]);
+				}
 			}
 
 			priv.initZoomImg.apply($this, [$nextImg, $this.set.currImg.pos]);
@@ -647,6 +651,7 @@
 		prev: '.js-remooz-prev',
 		next: '.js-remooz-next',
 		preloader: '.js-remooz-preloader',
+		skipSlide: 'redils-duplicated',
 		debug: false
 	};
 

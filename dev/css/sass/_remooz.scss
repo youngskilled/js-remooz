@@ -2,7 +2,7 @@
 .remooz-fullScreenContainer { display: none; height: 2000px; position: fixed; left: 0; top: 0; width: 100%; z-index: 1500; background-color: rgba(#fff, 0.8);
 	img { position: absolute; z-index: 1000; cursor: zoom; display: block; }
 	.remooz-fullScreenContainer-inner { text-align: center; z-index: 19; } }
-.remooz-fullScreenContainer-close { position: absolute; z-index: 20; width: 50px; height: 50px; right: 20px; top: 20px; font-size: 50px; line-height: 50px; cursor: pointer; }
+.remooz-fullScreenContainer-close { position: absolute; z-index: 200; width: 50px; height: 50px; right: 20px; top: 20px; font-size: 50px; line-height: 50px; cursor: pointer; }
 .remooz-fullScreenContainer-next { @extend .remooz-fullScreenContainer-close; top: 50%; margin-top: -25px; position: fixed; }
 .remooz-fullScreenContainer-prev { @extend .remooz-fullScreenContainer-next; right: auto; margin-left: 20px; }
 //.preloader { display: none; width: 200px; height: 200px; background: transparent url($svgSprite) -10px -10px no-repeat; z-index: 2000; position: fixed; top: 50%; left: 50%; margin: -100px 0 0 -100px; @include animation(giffa 0.8s steps(1) 0s infinite); }
