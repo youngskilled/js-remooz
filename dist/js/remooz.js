@@ -64,6 +64,7 @@
 				if($this.set.single === false) {
 					//Can handle being a grandchild in a list but no deeper.
 					imgIndex = ($this.set.mgBehaviour !== 'none') ? $zoomImg.index() - 1 : $zoomImg.index();
+					if(imgIndex === 0 && !$zoomImg.parent().is($this.set.zoomPool)) imgIndex = $zoomImg.parent().index();
 					if($this.set.debug === true) console.info('Zoom Image = ',$zoomImg);
 					$this.set.currImg = {'pos': imgIndex, 'len': $this.find($this.set.zoomPool + ' img').length};
 					if($this.set.currImg.len === 1) {
@@ -155,12 +156,13 @@
 			
 		},
 		manipulateZoomImg: function() {
-			var $this = this,
-				css = {},
-				mouseMoveInit = false,
-				$img = $('#' + $this.set.zoomID),
-				scaleX = 1,
-				scaleY = 1;
+			var $this = this;
+			var css = {};
+			var mouseMoveInit = false;
+			var $img = $('#' + $this.set.zoomID);
+			var scaleX = 1;
+			var scaleY = 1;
+			var mousePostitionY = 0;
 
 			//Container's size
 			$this.set.img.contX = $this.set.$zoomImgCont.width();
@@ -176,6 +178,8 @@
 				$this.set.img.contY = $this.set.img.contY - ($this.set.imgOffset[0] + $this.set.imgOffset[2]);
 				$this.set.img.offsetY = $this.set.imgOffset[0];
 				scaleY = $this.set.img.contY / $this.set.zoomSizeY;
+			} else {
+				$this.set.img.contY = $this.set.img.contY - ($this.set.imgOffset[0] + $this.set.imgOffset[2]);
 			}
 
 			//we want the smallest scale to determine what to scale the pictures to.
@@ -219,7 +223,7 @@
 					//final image size with scale - height of window / height of window and rounded to two decimal points
 					$this.set.img.ratioY = Math.floor(($this.set.zoomSizeY * $this.set.img.scale - $this.set.img.contY) / $this.set.img.contY * 100) / 100;
 					if(!$this.set.touch) {
-						$this.set.img.Y = ($this.set.img.ratioY * $this.set.img.scale * -1) - $this.set.imgOffset[0];
+						$this.set.img.Y = $this.set.img.ratioY * $this.set.img.scale * -1;
 						$.extend(css, {'top': $this.set.img.Y});
 					}
 				}
@@ -236,7 +240,8 @@
 
 					//pic is taller than screen	
 					if($this.set.img.ratioY) {
-						$this.set.img.Y = e.clientY * $this.set.img.ratioY * -1;
+						mousePostitionY = e.clientY - $this.set.imgOffset[0] >= 0 ? e.clientY - $this.set.imgOffset[0] : 0;
+						$this.set.img.Y = (mousePostitionY * $this.set.img.ratioY * -1) + $this.set.imgOffset[0];
 						css.top = $this.set.img.Y;
 					}
 					
@@ -288,6 +293,7 @@
 			var $this = this,
 				$imgs = null;
 
+			$this.trigger('remooz.zoomOpened');
 			$this.set.isZoomed = true;
 			$('html,body').css('overflow','hidden');
 			$this.set.$zoomCont.fadeIn(400);
@@ -300,6 +306,7 @@
 		closeZoom: function() {
 			var $this = this;
 
+			$this.trigger('remooz.zoomClosed');
 			$this.set.isZoomed = false;
 			$('html,body').css('overflow','auto');
 			$(window).scrollTop($this.set.scrollPos);

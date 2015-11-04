@@ -65,6 +65,7 @@ section{margin-top:50px}
 .remooz-fullScreenContainer{display:none;height:2000px;position:fixed;left:0;top:0;width:100%;z-index:1500;background-color:rgba(255,255,255,.8)}
 .remooz-fullScreenContainer img{position:absolute;z-index:1000;cursor:zoom;display:block}
 .remooz-fullScreenContainer .remooz-fullScreenContainer-inner{text-align:center;z-index:19}
-.remooz-fullScreenContainer-close,.remooz-fullScreenContainer-next,.remooz-fullScreenContainer-prev{position:absolute;z-index:200;width:50px;height:50px;right:20px;top:20px;font-size:50px;line-height:50px;cursor:pointer}
-.remooz-fullScreenContainer-next,.remooz-fullScreenContainer-prev{top:50%;margin-top:-25px;position:fixed}
-.remooz-fullScreenContainer-prev{right:auto;margin-left:20px}
+.remooz-fullScreenContainer-controller{position:absolute;z-index:200;width:50px;height:50px;font-size:50px;line-height:50px;cursor:pointer}
+.remooz-fullScreenContainer-close{top:20px;right:20px}
+.remooz-fullScreenContainer-next{top:50%;right:20px;margin-top:-25px;position:fixed}
+.remooz-fullScreenContainer-prev{top:50%;left:20px;margin-top:-25px;position:fixed}

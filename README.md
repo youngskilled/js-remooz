@@ -20,7 +20,7 @@ Following structure is required for selector to work. (Using Emmet tab complete 
 
 *Screen - Full Options*
 
-	div.remooz-fullScreenContainer>div#js-remooz-zoomContainer.remooz-fullScreenContainer-inner+div#js-remooz-zoomThumbnailContainer+div.js-remooz-close.remooz-fullScreenContainer-close+div.js-remooz-prev.remooz-fullScreenContainer-prev+div.js-remooz-next.remooz-fullScreenContainer-next+div.js-remooz-preloader
+	div.remooz-fullScreenContainer>div#js-remooz-zoomContainer.remooz-fullScreenContainer-inner+div#js-remooz-zoomThumbnailContainer+div.js-remooz-close.remooz-fullScreenContainer-close.remooz-fullScreenContainer-controller+div.js-remooz-prev.remooz-fullScreenContainer-prev.remooz-fullScreenContainer-controller+div.js-remooz-next.remooz-fullScreenContainer-next.remooz-fullScreenContainer-controller+div.js-remooz-preloader
 
 *Screen - Bare Minimum*
 
@@ -147,6 +147,22 @@ Helpful to get some debugging data. This should be off for production, prints ob
 	$(selector).remooz({debug: false});
 
 
+### Events ###
+
+#### remooz.zoomOpened ####
+
+Triggers when zoom popup has been opened.
+
+	$(selector).on('remooz.zoomOpened', function(){ });
+
+
+#### remooz.zoomClosed ####
+
+Triggers when zoom popup has been closed.
+
+	$(selector).on('remooz.zoomClosed', function(){ });
+
+
 #### Classes ####
 
 Numerous classes can be reassigned. Check the `defaultOpts {}` as to which classes are able to be manipulated.
@@ -165,6 +181,9 @@ Numerous classes can be reassigned. Check the `defaultOpts {}` as to which class
 
 
 ### Changelog ###
+
+**Version 1.8.0**  
+Added events to when zoom is showing/hidden. Fixed index behaviour when changing images if images are not siblings to each other. Added imageOffset to images that are larger than the screen. Useful for fixed headers above zoom etc. Updated CSS to not include @extends buts to use a common class for all controls.
 
 **Version 1.7.1**  
 Added class to enable one to skip certain slides in slideshow mode. Default skips duplicated slides in redils slider.

@@ -801,24 +801,29 @@ section {
     text-align: center;
     z-index: 19; }
 
-.remooz-fullScreenContainer-close, .remooz-fullScreenContainer-next, .remooz-fullScreenContainer-prev {
+.remooz-fullScreenContainer-controller {
   position: absolute;
   z-index: 200;
   width: 50px;
   height: 50px;
-  right: 20px;
-  top: 20px;
   font-size: 50px;
   line-height: 50px;
   cursor: pointer; }
 
-.remooz-fullScreenContainer-next, .remooz-fullScreenContainer-prev {
+.remooz-fullScreenContainer-close {
+  top: 20px;
+  right: 20px; }
+
+.remooz-fullScreenContainer-next {
   top: 50%;
+  right: 20px;
   margin-top: -25px;
   position: fixed; }
 
 .remooz-fullScreenContainer-prev {
-  right: auto;
-  margin-left: 20px; }
+  top: 50%;
+  left: 20px;
+  margin-top: -25px;
+  position: fixed; }
 
 /*# sourceMappingURL=main.css.map */
