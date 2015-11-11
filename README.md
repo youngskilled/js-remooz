@@ -69,6 +69,24 @@ In combination with the above property you can change the src of the full-sized 
 
 	$(selector).remooz({srcStrReplace: "-large.$1"})
 
+#### useScroll ####
+
+*Default* `false`   
+*Expects* `boolean`
+
+If you would like to control the zoom container with scroll instead of moving the mouse up and down. Set this attribute. You'll also need to define overflow's yourself.
+
+	$(selector).remooz({useScroll: false})
+
+#### touchOpenReplaceTab ####
+
+*Default* `false`   
+*Expects* `boolean`
+
+If you would like the image to replace the current window you are on when zooming set this to true. The user then can navigate back to the site using the back button which is simpler than closing the tab.
+
+	$(selector).remooz({touchOpenReplaceTab: false})
+
 #### viewNext ####
 
 *Default* `false`   
@@ -181,6 +199,9 @@ Numerous classes can be reassigned. Check the `defaultOpts {}` as to which class
 
 
 ### Changelog ###
+
+**Version 1.8.1**  
+Added a property to control image movement when in zoom mode, now possible to scroll. Added a property to allow image to be opened in the same window. It is a window.location so for the user to get back to the current screen must navigate back. Changed the touch to be more sensitive now movement must be less than 40px.
 
 **Version 1.8.0**  
 Added events to when zoom is showing/hidden. Fixed index behaviour when changing images if images are not siblings to each other. Added imageOffset to images that are larger than the screen. Useful for fixed headers above zoom etc. Updated CSS to not include @extends buts to use a common class for all controls.

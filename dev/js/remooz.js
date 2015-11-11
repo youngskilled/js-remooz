@@ -229,7 +229,7 @@
 				}
 			}
 
-			if(($this.set.img.ratioY || $this.set.img.ratioX) && !mouseMoveInit) {
+			if(($this.set.img.ratioY || $this.set.img.ratioX) && !mouseMoveInit && !$this.set.useScroll) {
 				mouseMoveInit = true;
 				$(document, window).on('mousemove', function(e) {
 					//pic is wider than screen
@@ -358,7 +358,7 @@
 
 		},
 		touchClick: function() {
-			return (Math.abs(Math.abs(winTouches.startX) - Math.abs(winTouches.endX))) < 50 && (Math.abs(Math.abs(winTouches.startY) - Math.abs(winTouches.endY))) < 50;
+			return (Math.abs(Math.abs(winTouches.startX) - Math.abs(winTouches.endX))) < 40 && (Math.abs(Math.abs(winTouches.startY) - Math.abs(winTouches.endY))) < 40;
 		},
 		longTouch: function() {
 			return winTouches.endTime - winTouches.startTime > 800;
@@ -454,12 +454,18 @@
 
 					//see if finger has moved. if finger has moved more than 40px disable.
 					if(priv.touchClick()) {
-
 						e.preventDefault();
+
 						var $zoomImg = $(this).parent().find($this.set.zoomImg);
-						priv.initZoomImg.apply($this,[$zoomImg, undefined]);
-						$('html,body').scrollTop(0);
-						priv.fullZoomInit.apply($this);
+
+						if($this.set.touchOpenReplaceTab) {
+							zoomImgSrc = $zoomImg.attr('src').replace($this.set.srcRegexp, $this.set.srcStrReplace);
+							window.location = zoomImgSrc;
+						} else {
+							priv.initZoomImg.apply($this,[$zoomImg, undefined]);
+							$('html,body').scrollTop(0);
+							priv.fullZoomInit.apply($this);
+						}
 
 					}
 
@@ -547,6 +553,7 @@
 					}
 				},
 				touchstart: function(e) {
+					privateOpts.touch = true;
 					winTouches.startX = e.originalEvent.targetTouches[0].clientX;
 					winTouches.startY = e.originalEvent.targetTouches[0].clientY;
 					winTouches.endX = e.originalEvent.targetTouches[0].clientX;
@@ -648,6 +655,8 @@
 		imgOffset: [0, 0, 0, 0],
 		mgBehaviour: 'fixed',
 		mgImgOffset: [0, 0, 0, 0],
+		useScroll: false,
+		touchOpenReplaceTab: false,
 		zoomCont: '#js-remooz-zoomContainer',
 		zoomThumbCont: '#js-remooz-zoomThumbnailContainer',
 		zoomPool: '#js-remooz-imagePool',
