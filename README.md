@@ -183,6 +183,10 @@ Triggers when zoom popup has been closed.
 
 #### Classes ####
 
+#### zoomImg ####
+
+Can be set to a class or the keyword `currentTarget` to trigger the image that is hovered upon.
+
 Numerous classes can be reassigned. Check the `defaultOpts {}` as to which classes are able to be manipulated.
 
 	zoomCont: '#js-remooz-zoomContainer',
@@ -199,6 +203,9 @@ Numerous classes can be reassigned. Check the `defaultOpts {}` as to which class
 
 
 ### Changelog ###
+
+**Version 1.9.0**  
+zoomImg now takes a keyword for when the zoom function should just take the image that is currently being targeted. Useful if all images are visible. Also fixed is a bug for top when scroll enabled. Css is now set to `top: 0`.
 
 **Version 1.8.1**  
 Added a property to control image movement when in zoom mode, now possible to scroll. Added a property to allow image to be opened in the same window. It is a window.location so for the user to get back to the current screen must navigate back. Changed the touch to be more sensitive now movement must be less than 40px.

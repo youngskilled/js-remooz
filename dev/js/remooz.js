@@ -248,6 +248,7 @@
 					$img.css(css);
 				});
 			} else {
+				if($this.set.useScroll) css.top = 0;
 				$(document, window).off('mousemove');
 				mouseMoveInit = false;
 			}
@@ -394,9 +395,14 @@
 			if($this.set.debug === true) console.info('Triggered element = ' + $openZoom);
 
 			$this.on({
-				mouseenter: function() {
+				mouseenter: function(e) {
+					var $zoomImg;
 					//Send the main object and the clicked object
-					var $zoomImg = $(this).parent().find($this.set.zoomImg);
+					if($this.set.zoomImg === 'currentTarget') {
+						$zoomImg = $(e.target);
+					} else {
+						$zoomImg = $(this).parent().find($this.set.zoomImg);
+					}
 
 					if($this.set.single === false) {
 						priv.initZoomImg.apply($this,[$zoomImg, undefined]);
@@ -456,7 +462,13 @@
 					if(priv.touchClick()) {
 						e.preventDefault();
 
-						var $zoomImg = $(this).parent().find($this.set.zoomImg);
+						var $zoomImg;
+
+						if($this.set.zoomImg === 'currentTarget') {
+							$zoomImg = $(e.target);
+						} else {
+							$zoomImg = $(this).parent().find($this.set.zoomImg);
+						}
 
 						if($this.set.touchOpenReplaceTab) {
 							zoomImgSrc = $zoomImg.attr('src').replace($this.set.srcRegexp, $this.set.srcStrReplace);
@@ -474,7 +486,14 @@
 					
 					e.preventDefault();
 					$this.set.scrollPos = $(window).scrollTop();
-					var $zoomImg = $(this).parent().find($this.set.zoomImg);
+
+					var $zoomImg;
+
+					if($this.set.zoomImg === 'currentTarget') {
+						$zoomImg = $(e.target);
+					} else {
+						$zoomImg = $(this).parent().find($this.set.zoomImg);
+					}
 					priv.initZoomImg.apply($this,[$zoomImg, undefined]);
 					$('html,body').scrollTop(0);
 					priv.fullZoomInit.apply($this);
